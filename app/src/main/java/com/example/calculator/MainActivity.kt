@@ -35,10 +35,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //using Clear button with onClick function by adding onClick at XML
     fun clear(view: View){
         binding.tvResult.text = ""
     }
 
+    //using other buttons with traditional function
     fun sum(num1 :Double, num2 :Double){
         var result = num1 + num2
         binding.tvResult.text = result.toString()
