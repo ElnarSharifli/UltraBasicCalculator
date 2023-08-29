@@ -3,7 +3,9 @@ package com.example.calculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.example.calculator.databinding.ActivityMainBinding
+import kotlin.reflect.typeOf
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -13,25 +15,50 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+
         binding.btnSum.setOnClickListener {
-            var numberOne = binding.etNumberOne.text.toString().toDouble()
-            var numberTwo = binding.etNumberTwo.text.toString().toDouble()
-            sum(numberOne,numberTwo)
+            var numberOne : Double? = binding.etNumberOne.text.toString().toDoubleOrNull()
+            var numberTwo : Double? = binding.etNumberTwo.text.toString().toDoubleOrNull()
+            if(numberOne is Double && numberTwo is Double){
+                sum(numberOne,numberTwo)
+            }
+            else
+            {
+                Toast.makeText(this@MainActivity, "Invalid input type", Toast.LENGTH_LONG).show()
+            }
         }
         binding.btnSubtraction.setOnClickListener {
-            var numberOne = binding.etNumberOne.text.toString().toDouble()
-            var numberTwo = binding.etNumberTwo.text.toString().toDouble()
-            subtraction(numberOne,numberTwo)
+            var numberOne : Double? = binding.etNumberOne.text.toString().toDoubleOrNull()
+            var numberTwo : Double? = binding.etNumberTwo.text.toString().toDoubleOrNull()
+            if(numberOne is Double && numberTwo is Double){
+                subtraction(numberOne,numberTwo)
+            }
+            else
+            {
+                Toast.makeText(this@MainActivity, "Invalid input type", Toast.LENGTH_LONG).show()
+            }
         }
         binding.btnMultiplication.setOnClickListener {
-            var numberOne = binding.etNumberOne.text.toString().toDouble()
-            var numberTwo = binding.etNumberTwo.text.toString().toDouble()
-            multiplication(numberOne,numberTwo)
+            var numberOne : Double? = binding.etNumberOne.text.toString().toDoubleOrNull()
+            var numberTwo : Double? = binding.etNumberTwo.text.toString().toDoubleOrNull()
+            if(numberOne is Double && numberTwo is Double){
+                multiplication(numberOne,numberTwo)
+            }
+            else
+            {
+                Toast.makeText(this@MainActivity, "Invalid input type", Toast.LENGTH_LONG).show()
+            }
         }
         binding.btnDivision.setOnClickListener {
-            var numberOne = binding.etNumberOne.text.toString().toDouble()
-            var numberTwo = binding.etNumberTwo.text.toString().toDouble()
-            division(numberOne,numberTwo)
+            var numberOne : Double? = binding.etNumberOne.text.toString().toDoubleOrNull()
+            var numberTwo : Double? = binding.etNumberTwo.text.toString().toDoubleOrNull()
+            if(numberOne is Double && numberTwo is Double){
+                division(numberOne,numberTwo)
+            }
+            else
+            {
+                Toast.makeText(this@MainActivity, "Invalid input type", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
