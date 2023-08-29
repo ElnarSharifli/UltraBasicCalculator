@@ -1,3 +1,3 @@
 # UltraBasicCalculator
 
-https://github.com/ElnarSharifli/UltraBasicCalculator/assets/88022369/e6bb0fca-f245-452e-a9ef-279152803d23
+https://github.com/ElnarSharifli/UltraBasicCalculator/assets/88022369/3f6e6c8c-3d98-479f-9b8e-0efd716ca3ac
