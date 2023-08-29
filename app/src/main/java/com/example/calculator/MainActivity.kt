@@ -1,9 +1,12 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.calculator.databinding.ActivityMainBinding
 import kotlin.reflect.typeOf
 
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             }
             else
             {
-                Toast.makeText(this@MainActivity, "Invalid input type", Toast.LENGTH_LONG).show()
+                showCustomToast()
             }
         }
         binding.btnSubtraction.setOnClickListener {
@@ -35,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             }
             else
             {
-                Toast.makeText(this@MainActivity, "Invalid input type", Toast.LENGTH_LONG).show()
+                showCustomToast()
             }
         }
         binding.btnMultiplication.setOnClickListener {
@@ -46,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             }
             else
             {
-                Toast.makeText(this@MainActivity, "Invalid input type", Toast.LENGTH_LONG).show()
+                showCustomToast()
             }
         }
         binding.btnDivision.setOnClickListener {
@@ -57,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             }
             else
             {
-                Toast.makeText(this@MainActivity, "Invalid input type", Toast.LENGTH_LONG).show()
+                showCustomToast()
             }
         }
     }
@@ -67,7 +70,16 @@ class MainActivity : AppCompatActivity() {
         binding.tvResult.text = ""
     }
 
-    //using other buttons with traditional function
+    //the function to show custom toast as its name indicates
+    fun showCustomToast() {
+        val toastView = layoutInflater.inflate(R.layout.custom_toast, null)
+        val toast = Toast(this@MainActivity)
+        toast.duration = Toast.LENGTH_LONG
+        toast.view = toastView
+        toast.show()
+    }
+
+    //using other buttons with traditional onclick function structure in xml
     fun sum(num1 :Double, num2 :Double){
         var result = num1 + num2
         binding.tvResult.text = result.toString()
